@@ -9,9 +9,10 @@ public class MainScreen : MonoBehaviour
     public TMP_InputField amountInput;
     public Button DepositButton;
     public Button withdrawButton;
+    [SerializeField] private GameObject Error;
 
-    private float BankMoney = 100000;
-    private float Money = 50000;
+    public float BankMoney;
+    public float Money;
 
     private void Start()
     {
@@ -33,11 +34,13 @@ public class MainScreen : MonoBehaviour
             }
             else
             {
+                Error.SetActive(true);
                 Debug.Log("Not Enough Money");
             }
         }
         else
         {
+            Error.SetActive(true);
             Debug.Log("Invalid Input for Deposit");
         }
     }
@@ -56,11 +59,13 @@ public class MainScreen : MonoBehaviour
             }
             else
             {
+                Error.SetActive(true);
                 Debug.Log("Not Enough Money in the Bank");
             }
         }
         else
         {
+            Error.SetActive(true);
             Debug.Log("Invalid Input for Withdraw");
         }
     }
